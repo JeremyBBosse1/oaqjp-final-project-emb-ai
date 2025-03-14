@@ -8,8 +8,8 @@ def emotion_detector(text_to_analyse):
     response = requests.post(url, json = myobj, headers=header)
     formatted_response = json.loads(response.text)
     if response.status_code == 200:
-        label = formatted_response['label']
-        score = formatted_response['score']
+        label = formatted_response['documentSentiment']['label']
+        score = formatted_response['documentSentiment']['score']
     elif response.status_code == 500:
         label = None
         score = None
